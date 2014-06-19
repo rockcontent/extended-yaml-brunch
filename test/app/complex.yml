@@ -1,0 +1,13 @@
+all:
+  someArray:
+    - registered
+    - canSendEmails
+  someBool: true
+  someDate: 2001-12-14 21:59:43.10 -5
+  someString: "hello"
+  someFunction: !!js/function >
+    function dummy () {
+      return 'hello';
+    }
+  someRegexp: !!js/regexp /^hello$/i
+  someUndefined: !!js/undefined ~

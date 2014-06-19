@@ -1,0 +1,43 @@
+{
+  "name": "yaml-brunch",
+  "version": "1.7.0",
+  "description": "Add the ability to import one or more YAML files as an object in a defined namespace for use in javascript",
+  "author": "Huafu Gandon <huafu.gandon@gmail.com>",
+  "homepage": "https://github.com/huafu/yaml-brunch",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:huafu/yaml-brunch.git"
+  },
+  "main": "./index",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --reporter spec --compilers coffee:coffee-script/register --require coffee-script/register --require test/common --colors"
+  },
+  "engines": {
+    "node": "~0.6.10 || 0.8 || 0.9 || 0.10"
+  },
+  "dependencies": {
+    "coffee-script": "1.7.1",
+    "js-yaml": "3.0.2"
+  },
+  "devDependencies": {
+    "chai": "1.2.0",
+    "mkdirp": "^0.5.0",
+    "mocha": "1.3.2",
+    "ncp": "^0.5.1",
+    "rmdir": "^1.0.4",
+    "sinon": "^1.10.2",
+    "sinon-chai": "^2.5.0"
+  },
+  "bugs": {
+    "url": "https://github.com/huafu/yaml-brunch/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "brunch",
+    "plugin",
+    "yaml"
+  ],
+  "license": "MIT"
+}
