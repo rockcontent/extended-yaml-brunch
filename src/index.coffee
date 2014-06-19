@@ -34,17 +34,13 @@ class YamlCompiler
   pattern: /\.ya?ml$/
 
   destination: null
-  jsPathForFile: null
 
 
 
   constructor: (@config = {}) ->
     YamlCompiler.instance = @
-    conf = @config.yaml ? {}
-    dst = conf.destination ? ''
-    dst = dst.split('.').slice(1).join('.') if /^window(?:\.|$)/.test(dst)
-    @destination = (part for part in dst.split('.') when part isnt '')
-    @jsPathForFile = conf.jsPathForFile ? (path) -> path
+    conf = @config.extendedYaml ? {}
+    @jsPathForFile = conf.jsPathForFile ? (path) -> null
 
 
   serialize: (object) ->
@@ -69,13 +65,19 @@ class YamlCompiler
 
 
   pathToArray: (path) ->
-    path.split('.').slice(0, -1).join('.').substr(@rootPath().length + 1).split sysPath.sep
+    path.split('.').slice(0, -1).join('.').split sysPath.sep
 
 
   compile: (data, path, callback) ->
-    dst = @destination.concat @jsPathForFile(@pathToArray path)
+    relPath = fs.realpathSync(path).substr(@rootPath().length + 1)
+    where = @jsPathForFile(relPath, @pathToArray relPath)
+    if typeOf(where) is 'string'
+      where = where.split('.')
+    if typeOf(where) is 'array' and where.length
+      where.shift() if where[0] is 'window'
+      where = (item for item in where when item isnt '').join '.'
     doc = yaml.load data, strict: yes
-    callback null, "!this.yamlBrunch(#{JSON.stringify dst.join('.')}, #{@serialize doc});\n"
+    callback null, "module.exports=this.yamlBrunch(#{JSON.stringify where}, #{@serialize doc});\n"
 
 
 module.exports = YamlCompiler

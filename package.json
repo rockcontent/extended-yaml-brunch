@@ -1,12 +1,12 @@
 {
-  "name": "yaml-brunch",
+  "name": "extended-yaml-brunch",
   "version": "1.7.0",
-  "description": "Add the ability to import one or more YAML files as an object in a defined namespace for use in javascript",
+  "description": "Add the ability to import one or more complex YAML files (with js functions, dates, regexp, ...) as objects in a defined namespace for use in javascript",
   "author": "Huafu Gandon <huafu.gandon@gmail.com>",
   "homepage": "https://github.com/huafu/yaml-brunch",
   "repository": {
     "type": "git",
-    "url": "git@github.com:huafu/yaml-brunch.git"
+    "url": "git@github.com:huafu/extended-yaml-brunch.git"
   },
   "main": "./index",
   "scripts": {
@@ -29,7 +29,7 @@
     "sinon-chai": "^2.5.0"
   },
   "bugs": {
-    "url": "https://github.com/huafu/yaml-brunch/issues"
+    "url": "https://github.com/huafu/extended-yaml-brunch/issues"
   },
   "directories": {
     "test": "test"
