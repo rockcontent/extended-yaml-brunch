@@ -25,7 +25,7 @@ typeOf = (item) ->
   ret
 
 
-class YamlCompiler
+class ExtendedYamlCompiler
   @instance: null
 
   brunchPlugin: yes
@@ -38,7 +38,7 @@ class YamlCompiler
 
 
   constructor: (@config = {}) ->
-    YamlCompiler.instance = @
+    ExtendedYamlCompiler.instance = @
     conf = @config.extendedYaml ? {}
     @jsPathForFile = conf.jsPathForFile ? (path) -> null
 
@@ -80,4 +80,4 @@ class YamlCompiler
     callback null, "module.exports=this.yamlBrunch(#{JSON.stringify where}, #{@serialize doc});\n"
 
 
-module.exports = YamlCompiler
+module.exports = ExtendedYamlCompiler
