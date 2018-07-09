@@ -1,6 +1,6 @@
 {
   "name": "extended-yaml-brunch",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "Add the ability to import one or more complex YAML files (with js functions, dates, regexp, ...) as objects in a defined namespace for use in javascript",
   "author": "Huafu Gandon <huafu.gandon@gmail.com>",
   "homepage": "https://github.com/huafu/yaml-brunch",
